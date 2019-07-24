@@ -14,6 +14,7 @@
 
 <script>
 export default {
+  name: 'Checkboxes',
   props: {
     id: {
       type: String
@@ -44,7 +45,7 @@ export default {
     margin: 0;
 
     li {
-      margin-right: 15px;
+      margin-right: 10px;
     }
   }
 }
