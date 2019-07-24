@@ -7,7 +7,7 @@
       No vendors found, please select differerent range
     </div>
     <div class="vendor-list-item" v-for="(vendor, index) in vendors" :key="index">
-      <router-link :to="`/details/?${convertQuery(vendor)}`" tag="div" class="vendor-address">
+      <router-link :to="vendor | formatUrl" tag="div" class="vendor-address">
         <h3 class="vendor-name">{{ vendor.name }},</h3>
         <div>Founded on: {{ vendor.founding_year }}, Total Employees: {{ vendor.employee_count_code }}</div>
       </router-link>
@@ -25,9 +25,9 @@ export default {
       type: Array
     }
   },
-  methods: {
-    convertQuery(vendor) {
-      return queryString.stringify(vendor);
+  filters: {
+    formatUrl(vendor) {
+      return `/details/?${queryString.stringify(vendor)}`;
     }
   }
 };
